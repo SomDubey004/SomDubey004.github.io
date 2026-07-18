@@ -1,601 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Som Dubey | Data Analyst Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Som Dubey | Data Analytics & Data Engineering Portfolio</title>
+
+    <meta name="description"
+        content="Portfolio of Som Dubey - Data Analyst & Aspiring Data Engineer specializing in Python, SQL, Power BI, ETL Pipelines and Business Intelligence.">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
 
+/* =====================================================
+        ROOT VARIABLES
+===================================================== */
+
 :root{
-    --bg:#0f172a;
-    --card:#1e293b;
-    --card2:#334155;
-    --primary:#38bdf8;
-    --secondary:#6366f1;
-    --text:#f8fafc;
-    --muted:#94a3b8;
+
+--bg:#020617;
+
+--card:rgba(15,23,42,.75);
+
+--card-solid:#0f172a;
+
+--primary:#3b82f6;
+
+--secondary:#8b5cf6;
+
+--text:#f8fafc;
+
+--gray:#94a3b8;
+
+--border:rgba(255,255,255,.08);
+
+--shadow:0 15px 40px rgba(0,0,0,.4);
+
 }
 
+/* =====================================================
+RESET
+===================================================== */
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-    scroll-behavior:smooth;
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+scroll-behavior:smooth;
+
 }
 
 body{
-    background:linear-gradient(135deg,#020617,#0f172a,#111827);
-    color:var(--text);
+
+background:var(--bg);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
 }
 
-/* NAVBAR */
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:linear-gradient(var(--primary),var(--secondary));
+
+border-radius:30px;
+
+}
+
+/* =====================================================
+BACKGROUND
+===================================================== */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:700px;
+
+height:700px;
+
+background:#3b82f620;
+
+filter:blur(150px);
+
+top:-300px;
+
+right:-250px;
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:600px;
+
+height:600px;
+
+background:#8b5cf620;
+
+filter:blur(160px);
+
+bottom:-250px;
+
+left:-250px;
+
+z-index:-2;
+
+}
+
+/* =====================================================
+CONTAINER
+===================================================== */
+
+.container{
+
+width:min(1200px,90%);
+
+margin:auto;
+
+}
+
+/* =====================================================
+HEADER
+===================================================== */
+
+header{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+z-index:1000;
+
+backdrop-filter:blur(16px);
+
+background:rgba(2,6,23,.55);
+
+border-bottom:1px solid var(--border);
+
+}
 
 nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    z-index:999;
-    backdrop-filter:blur(15px);
-    background:rgba(15,23,42,.8);
-    padding:18px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+height:80px;
+
 }
+
+/* =====================================================
+LOGO
+===================================================== */
 
 .logo{
-    font-size:1.4rem;
-    font-weight:700;
-    color:var(--primary);
+
+font-family:'Sora',sans-serif;
+
+font-size:1.4rem;
+
+font-weight:700;
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
 }
 
-nav ul{
-    display:flex;
-    gap:25px;
-    list-style:none;
+.logo-box{
+
+width:45px;
+
+height:45px;
+
+border-radius:12px;
+
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-weight:700;
+
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
+/* =====================================================
+NAVIGATION
+===================================================== */
+
+.nav-links{
+
+display:flex;
+
+list-style:none;
+
+gap:35px;
+
 }
 
-/* HERO */
+.nav-links a{
 
-.hero{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:120px 8%;
-    gap:70px;
-    flex-wrap:wrap;
+text-decoration:none;
+
+color:var(--gray);
+
+font-weight:500;
+
+transition:.3s;
+
+position:relative;
+
 }
 
-.profile{
-    width:320px;
-    height:320px;
-    border-radius:50%;
-    object-fit:cover;
-    border:6px solid var(--primary);
-    box-shadow:0 0 35px rgba(56,189,248,.5);
+.nav-links a:hover{
+
+color:white;
+
 }
 
-.hero-content{
-    max-width:650px;
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-6px;
+
+width:0;
+
+height:2px;
+
+background:linear-gradient(to right,var(--primary),var(--secondary));
+
+transition:.3s;
+
 }
 
-.hero-content h1{
-    font-size:3.5rem;
+.nav-links a:hover::after{
+
+width:100%;
+
 }
 
-.hero-content h2{
-    color:var(--primary);
-    margin:10px 0;
+/* =====================================================
+BUTTON
+===================================================== */
+
+.resume-btn{
+
+padding:12px 24px;
+
+border-radius:50px;
+
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+text-decoration:none;
+
+color:white;
+
+font-weight:600;
+
+transition:.3s;
+
+box-shadow:0 10px 25px rgba(59,130,246,.25);
+
 }
 
-.hero-content p{
-    color:var(--muted);
-    margin:20px 0;
-    line-height:1.8;
+.resume-btn:hover{
+
+transform:translateY(-3px);
+
 }
 
-.btn{
-    display:inline-block;
-    padding:12px 25px;
-    margin-right:10px;
-    background:var(--primary);
-    color:black;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:600;
+/* =====================================================
+MOBILE MENU
+===================================================== */
+
+.menu{
+
+display:none;
+
+font-size:1.6rem;
+
+cursor:pointer;
+
 }
 
-.btn2{
-    background:transparent;
-    border:2px solid var(--primary);
-    color:white;
-}
-
-/* KPI CARDS */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-    padding:0 8% 70px;
-}
-
-.stat-card{
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(10px);
-    padding:30px;
-    border-radius:20px;
-    text-align:center;
-    border:1px solid rgba(255,255,255,.1);
-}
-
-.stat-card h2{
-    color:var(--primary);
-    font-size:2rem;
-}
-
-/* SECTION */
+/* =====================================================
+PLACEHOLDER SECTION
+===================================================== */
 
 section{
-    padding:80px 8%;
+
+padding:120px 0;
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
 }
 
-.title{
-    text-align:center;
-    margin-bottom:50px;
-    font-size:2.4rem;
+/* =====================================================
+RESPONSIVE
+===================================================== */
+
+@media(max-width:900px){
+
+.nav-links{
+
+display:none;
+
 }
 
-.title span{
-    color:var(--primary);
+.resume-btn{
+
+display:none;
+
 }
 
-/* ABOUT */
+.menu{
 
-.about{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-    color:var(--muted);
-    line-height:1.9;
-}
+display:block;
 
-/* SKILLS */
-
-.skills-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.skill{
-    background:var(--card);
-    padding:20px;
-    border-radius:15px;
-}
-
-.skill-title{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
-}
-
-.progress{
-    height:10px;
-    background:#475569;
-    border-radius:50px;
-}
-
-.progress div{
-    height:100%;
-    background:linear-gradient(90deg,var(--primary),var(--secondary));
-    border-radius:50px;
-}
-
-/* PROJECTS */
-
-.projects{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-    gap:30px;
-}
-
-.project{
-    background:var(--card);
-    border-radius:20px;
-    overflow:hidden;
-    transition:.3s;
-}
-
-.project:hover{
-    transform:translateY(-8px);
-}
-
-.project img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.project-content{
-    padding:25px;
-}
-
-.project h3{
-    margin-bottom:10px;
-}
-
-.project p{
-    color:var(--muted);
-}
-
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin:15px 0;
-}
-
-.tags span{
-    background:var(--primary);
-    color:black;
-    padding:6px 12px;
-    border-radius:20px;
-    font-size:.85rem;
-    font-weight:600;
-}
-
-.learn{
-    margin-top:15px;
-}
-
-.learn li{
-    margin-left:20px;
-    color:var(--muted);
-}
-
-/* CERTIFICATIONS */
-
-.certs{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.cert{
-    background:var(--card);
-    padding:25px;
-    border-radius:15px;
-}
-
-/* CONTACT */
-
-.contact{
-    text-align:center;
-}
-
-.contact p{
-    margin:10px;
-    color:var(--muted);
-}
-
-.contact a{
-    color:var(--primary);
-    text-decoration:none;
-}
-
-/* FOOTER */
-
-footer{
-    text-align:center;
-    padding:25px;
-    background:#020617;
-    color:var(--muted);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero-content h1{
-    font-size:2.5rem;
-}
-
-.profile{
-    width:250px;
-    height:250px;
 }
 
 }
 
 </style>
+
 </head>
+
 <body>
 
-<nav>
-    <div class="logo">Som -Dubey</div>
+<!-- ===================================================
+NAVBAR
+=================================================== -->
 
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+<header>
+
+<div class="container">
+
+<nav>
+
+<div class="logo">
+
+<div class="logo-box">
+
+SD
+
+</div>
+
+Som Dubey
+
+</div>
+
+<ul class="nav-links">
+
+<li><a href="#home">Home</a></li>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#projects">Projects</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<a href="#" class="resume-btn">
+
+<i class="fa-solid fa-download"></i>
+
+Resume
+
+</a>
+
+<div class="menu">
+
+<i class="fa-solid fa-bars"></i>
+
+</div>
+
 </nav>
 
-<section class="hero">
-
-    <img src="images/profile.jpg" class="profile" alt="Profile Photo">
-
-    <div class="hero-content">
-
-        <h1>👋 Hi, I'm Som Dubey</h1>
-
-        <h2>Aspiring Data Analyst</h2>
-
-        <p>
-            I transform raw data into meaningful insights using SQL,
-            Excel, Power BI, Python and Azure. Passionate about
-            analytics, dashboard development and business intelligence.
-        </p>
-
-        <a href="resume/Sharad_Dubey_Resume.pdf" class="btn">
-            Download Resume
-        </a>
-
-        <a href="#projects" class="btn btn2">
-            View Projects
-        </a>
-
-    </div>
-
-</section>
-
-<div class="stats">
-
-    <div class="stat-card">
-        <h2>10+</h2>
-        <p>Projects Completed</p>
-    </div>
-
-    <div class="stat-card">
-        <h2>5+</h2>
-        <p>Tools Mastered</p>
-    </div>
-
-    <div class="stat-card">
-        <h2>100%</h2>
-        <p>Learning Mindset</p>
-    </div>
-
 </div>
 
-<section id="about">
+</header>
 
-    <h2 class="title">About <span>Me</span></h2>
+<!-- ===================================================
+HOME PLACEHOLDER
+=================================================== -->
 
-    <p class="about">
-        I am an aspiring Data Analyst with a strong interest in
-        data visualization, business intelligence and analytics.
-        I enjoy solving business problems using SQL, Excel,
-        Power BI and Python. My goal is to help organizations
-        make data-driven decisions through impactful dashboards
-        and actionable insights.
-    </p>
+<section id="home">
 
-</section>
+<div class="container">
 
-<section id="skills">
-
-    <h2 class="title">Skills & <span>Tools</span></h2>
-
-    <div class="skills-grid">
-
-        <div class="skill">
-            <div class="skill-title">
-                <span>Excel</span>
-                <span>90%</span>
-            </div>
-            <div class="progress"><div style="width:90%"></div></div>
-        </div>
-
-        <div class="skill">
-            <div class="skill-title">
-                <span>SQL</span>
-                <span>85%</span>
-            </div>
-            <div class="progress"><div style="width:85%"></div></div>
-        </div>
-
-        <div class="skill">
-            <div class="skill-title">
-                <span>Power BI</span>
-                <span>80%</span>
-            </div>
-            <div class="progress"><div style="width:80%"></div></div>
-        </div>
-
-        <div class="skill">
-            <div class="skill-title">
-                <span>Python</span>
-                <span>75%</span>
-            </div>
-            <div class="progress"><div style="width:75%"></div></div>
-        </div>
-
-    </div>
-
-</section>
-
-<section id="projects">
-
-<h2 class="title">Featured <span>Projects</span></h2>
-
-<div class="projects">
-
-<div class="project">
-
-<img src="images/sales-dashboard.png">
-
-<div class="project-content">
-
-<h3>Sales Performance Dashboard</h3>
-
-<p>
-Interactive Power BI dashboard for sales analysis,
-revenue tracking and KPI monitoring.
-</p>
-
-<div class="tags">
-<span>Power BI</span>
-<span>DAX</span>
-<span>Excel</span>
-</div>
-
-<h4>Key Learnings</h4>
-
-<ul class="learn">
-<li>Data Modeling</li>
-<li>DAX Measures</li>
-<li>KPI Dashboard Design</li>
-<li>Business Storytelling</li>
-</ul>
-
-</div>
-</div>
-
-<div class="project">
-
-<img src="images/customer-analysis.png">
-
-<div class="project-content">
-
-<h3>Customer Churn Analysis</h3>
-
-<p>
-Analyzed customer behavior and churn patterns using
-Python and exploratory data analysis.
-</p>
-
-<div class="tags">
-<span>Python</span>
-<span>Pandas</span>
-<span>Matplotlib</span>
-</div>
-
-<h4>Key Learnings</h4>
-
-<ul class="learn">
-<li>Data Cleaning</li>
-<li>EDA</li>
-<li>Customer Segmentation</li>
-<li>Visualization</li>
-</ul>
-
-</div>
-</div>
-
-<div class="project">
-
-<img src="images/sql-project.png">
-
-<div class="project-content">
-
-<h3>SQL Business Insights</h3>
-
-<p>
-Used advanced SQL queries to identify top products,
-customer trends and revenue drivers.
-</p>
-
-<div class="tags">
-<span>MySQL</span>
-<span>CTE</span>
-<span>Window Functions</span>
-</div>
-
-<h4>Key Learnings</h4>
-
-<ul class="learn">
-<li>Complex Joins</li>
-<li>CTEs</li>
-<li>Window Functions</li>
-<li>Business Analytics</li>
-</ul>
-
-</div>
-</div>
+<h1 style="font-family:Sora;font-size:3rem;text-align:center;">
+Portfolio Coming Soon...
+</h1>
 
 </div>
 
 </section>
-
-<section>
-
-<h2 class="title">Certifications</h2>
-
-<div class="certs">
-
-<div class="cert">
-Microsoft Azure Fundamentals (AZ-900)
-</div>
-
-<div class="cert">
-Power BI Data Analytics Certification
-</div>
-
-<div class="cert">
-SQL for Data Analysis
-</div>
-
-</div>
-
-</section>
-
-<section id="contact">
-
-<h2 class="title">Contact <span>Me</span></h2>
-
-<div class="contact">
-
-<p>Email: yourmail@gmail.com</p>
-
-<p>
-GitHub:
-<a href="https://github.com/yourusername">
-github.com/yourusername
-</a>
-</p>
-
-<p>
-LinkedIn:
-<a href="https://linkedin.com/in/yourprofile">
-linkedin.com/in/yourprofile
-</a>
-</p>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 Sharad Dubey | Data Analyst Portfolio
-
-</footer>
 
 </body>
+
 </html>
